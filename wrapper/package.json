@@ -16,7 +16,7 @@
   "scripts": {
     "generate": "grpc_tools_node_protoc --proto_path=. --js_out=\"import_style=commonjs,binary:generated\" --grpc_out=\"grpc_js:generated\" --ts_out=\"service=grpc-node,mode=grpc-js:generated\" \"hello.proto\""
   },
-  "dependencies": {
+  "peerDependencies": {
     "@grpc/grpc-js": "^1.3.7"
   },
   "devDependencies": {

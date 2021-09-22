@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
-set -Eeuo pipefail
+set -Eeuxo pipefail
 
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 
 cd "$script_dir/wrapper"
+rm -rf node_modules
 yarn install
 yarn generate
 
 cd "$script_dir/client"
+rm -rf node_modules
+yarn add link:../wrapper
 yarn install
 yarn run ts-node index.ts
